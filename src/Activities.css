@@ -1,0 +1,260 @@
+.activities-container {
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  color: #e0f7fa;
+  background: 
+    radial-gradient(ellipse 70% 50% at 50% 90%, rgba(147, 161, 185, 0.6), transparent 58%),
+    radial-gradient(ellipse at bottom center, #174b52 45%, #000000 65%),
+    linear-gradient(140deg, #1A434E 0%, #03383a 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin-left: 250px;
+  padding-left: 50px;
+  width: calc(156% - 250px);
+  overflow-x: hidden;
+  animation: backgroundFadeIn 1s ease-out;
+}
+
+/* Calendar Section */
+.calendar-section {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  animation: slideInLeft 1s ease-out, fadeIn 0.5s ease-out;
+}
+
+/* Month Header */
+.month-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.month-header span {
+  margin: 0 20px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #40e0d0;
+  position: relative;
+}
+
+.month-header span::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #40e0d0, transparent);
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Day Headers */
+.day-header {
+  font-weight: bold;
+  text-align: center;
+  color: #40e0d0;
+  letter-spacing: 1px;
+}
+
+/* Day Box */
+.day-box {
+  height: 80px;
+  background-color: rgba(32, 58, 67, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards, scaleUp 0.3s ease-in-out 0.5s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+  color: #e0f7fa;
+}
+
+.day-box.active-day {
+  background-color: rgba(64, 224, 208, 0.2);
+  color: white;
+  font-weight: bold;
+}
+
+.day-number {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.activity-text {
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Activity Options */
+.activity-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  animation: fadeInUp 1s ease-out 1s;
+}
+
+/* Activity Card */
+.activity-card {
+  padding: 15px 20px;
+  border: 1px solid rgba(64, 224, 208, 0.3);
+  border-radius: 10px;
+  background-color: rgba(32, 58, 67, 0.3);
+  color: #e0f7fa;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  animation: fadeInUp 1s ease-out forwards;
+  box-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.2),
+    inset 0 0 10px rgba(64, 224, 208, 0.1);
+}
+
+.activity-card:hover {
+  background-color: rgba(64, 224, 208, 0.1);
+  transform: scale(1.03);
+  box-shadow: 
+    0 5px 15px rgba(64, 224, 208, 0.3),
+    inset 0 0 15px rgba(64, 224, 208, 0.2);
+  border-color: #40e0d0;
+}
+
+.activity-card.selected {
+  background-color: rgba(64, 224, 208, 0.2);
+  color: white;
+  border-color: #40e0d0;
+  box-shadow: 
+    0 0 15px rgba(64, 224, 208, 0.4),
+    inset 0 0 20px rgba(64, 224, 208, 0.3);
+}
+
+.activity-card.selected .activity-text {
+  color: white;
+}
+/* Modal - Tech interface style */
+.modal {
+  background-color: #0f2027;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 0;
+  box-shadow: 
+    0 0 30px rgba(64, 224, 208, 0.3),
+    inset 0 0 10px rgba(64, 224, 208, 0.2);
+  border: 1px solid #40e0d0;
+  animation: modalFadeIn 0.3s ease-in forwards;
+}
+
+.modal-header {
+  color: #40e0d0;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(64, 224, 208, 0.3);
+}
+
+.modal-description {
+  font-size: 14px;
+  color: #e0f7fa;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.modal-btn {
+  background: transparent;
+  color: #40e0d0;
+  padding: 12px 30px;
+  border: 1px solid #40e0d0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  animation: pulse 1.5s infinite;
+  margin-top: 23px;
+  position: relative;
+  overflow: hidden;
+}
+
+.reset-data-btn {
+  margin-top: 3rem;
+  margin-left: 1300px;
+  padding: 10px 16px;
+  background-color: #27867e; /* red to indicate caution */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.reset-data-btn:hover {
+  background-color: #d9363e;
+}
+
+.modal-btn:hover {
+  background: rgba(64, 224, 208, 0.1);
+  box-shadow: 0 0 20px rgba(64, 224, 208, 0.4);
+}
+
+.modal-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    transparent 45%,
+    rgba(64, 224, 208, 0.3) 50%,
+    transparent 55%
+  );
+  transform: rotate(30deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleUp { from { transform: scale(0.9); } to { transform: scale(1); } }
+@keyframes fadeInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInLeft { from { transform: translateX(-100px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes backgroundFadeIn { from { opacity: 0; } to { opacity: 1; } }

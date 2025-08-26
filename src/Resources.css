@@ -1,0 +1,98 @@
+/* Import Orbitron font (you can use Google Fonts or add via <link> in index.html) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+/* Resources Page Layout */
+.resources-page {
+     width: 100vw;
+    min-height: 100vh;
+    height: max-content;
+    background: radial-gradient(ellipse 80% 70% at 73% 35%, rgba(133, 215, 250, 0.9), transparent 58%),
+                linear-gradient(140deg, #000000 0%, #03383a 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 40px; /* 50px top/bottom, 40px left/right */    box-sizing: border-box;
+    animation: subtleBGShift 15s infinite alternate;
+}
+.resources-description {
+  font-size: 18px;
+  color: #d0f0f7;
+  margin: 0 auto 30px auto; /* Center horizontally with auto left/right margin */
+  max-width: 700px;
+  line-height: 1.5;
+  text-shadow: 0 0 5px #45a29e;
+  text-align: center; /* Center the text content */
+  /* Optional: add padding left/right to avoid edges on small screens */
+  padding: 0 10px;
+}
+
+
+.back-button {
+    position: relative;
+    left: 0;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.8), rgba(15, 76, 117, 0.8));
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
+    backdrop-filter: blur(5px);
+    margin-bottom: 24px;
+    align-self: flex-start;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 240, 255, 0.5);
+}
+
+
+/* Title Styling */
+.resources-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #66fcf1;
+  text-shadow: 0 0 10px #45a29e, 0 0 20px #45a29e;
+}
+
+/* Grid Container */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Individual Card Styling */
+.resource-card {
+  background: rgba(21, 32, 43, 0.85);
+  border: 1px solid #00f7ff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 0 14px rgba(0, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.resource-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 24px rgba(0, 255, 255, 0.6), 0 0 36px rgba(0, 255, 255, 0.2);
+}
+
+/* Link Styling */
+.resource-link {
+  color: #fafafa;
+  text-decoration: none;
+  font-weight: 700;
+  display: block;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.resource-link:hover {
+  color: #d6dbdb;
+  text-shadow: 0 0 8px #000000, 0 0 12px #00bbd469;
+  text-decoration: underline;
+}

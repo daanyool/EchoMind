@@ -1,0 +1,343 @@
+/* Background container with advanced energy flow */
+.signin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #03383a, #000000);
+    position: relative;
+    overflow: hidden;
+    animation: bgPulse 15s infinite alternate;
+}
+
+@keyframes bgPulse {
+    0% { background: linear-gradient(135deg, #03383a, #000000); }
+    50% { background: linear-gradient(135deg, #044a4c, #000000); }
+    100% { background: linear-gradient(135deg, #03383a, #000000); }
+}
+
+/* Energy flow pattern */
+.signin-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        linear-gradient(45deg, 
+            transparent 65%, 
+            rgba(109, 213, 237, 0.03) 70%, 
+            transparent 75%),
+        linear-gradient(-45deg, 
+            transparent 65%, 
+            rgba(33, 147, 176, 0.03) 70%, 
+            transparent 75%);
+    animation: energyFlow 12s linear infinite;
+    z-index: 1;
+}
+
+@keyframes energyFlow {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-25%, 25%) rotate(5deg); }
+    50% { transform: translate(-50%, 0) rotate(0deg); }
+    75% { transform: translate(-25%, -25%) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Glow pulse effect */
+.signin-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(116, 194, 249, 0.05) 0%,
+        rgba(116, 194, 249, 0) 70%
+    );
+    animation: glowPulse 8s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.3; transform: scale(0.95); }
+    100% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* Signin box */
+.signin-box {
+    width: 360px;
+    padding: 35px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Enhanced top circle with connection effect */
+.circle {
+    width: 20px;
+    height: 20px;
+    background-color: #74c2f9;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: 
+        circlePulse 2s infinite,
+        circleFloat 4s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(116, 194, 249, 0.7);
+    z-index: 3;
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center,
+        rgba(116, 194, 249, 0.3) 0%,
+        transparent 70%
+    );
+    transform: translate(-50%, -50%);
+    animation: connectPulse 3s infinite;
+}
+
+@keyframes circlePulse {
+    0%, 100% { 
+        box-shadow: 0 0 5px rgba(116, 194, 249, 0.7);
+        transform: translateX(-50%) scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 20px rgba(116, 194, 249, 0.9);
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+@keyframes circleFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+@keyframes connectPulse {
+    0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(0.8); }
+    50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* Form styling */
+.signin-box h2 {
+    margin-bottom: 0px;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.signin-box form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 13px;
+    gap: 15px;
+}
+
+.signin-box label {
+    text-align: left;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.signin-box input {
+    width: 100%;
+    padding: 12px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 5px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.signin-box input:focus {
+    border-color: rgba(116, 194, 249, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 10px rgba(116, 194, 249, 0.3);
+    animation: inputGlow 1.5s infinite alternate;
+}
+
+@keyframes inputGlow {
+    0% { box-shadow: 0 0 5px rgba(109, 213, 237, 0.3); }
+    100% { box-shadow: 0 0 15px rgba(109, 213, 237, 0.7); }
+}
+
+.signin-box input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+}
+
+/* Button styling */
+.signin-box button {
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(33, 147, 176, 0.3);
+    background-size: 200% auto;
+    animation: gradientFlow 3s infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.signin-box button:hover {
+    background: linear-gradient(to right, #2193b0, #6dd5ed);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(33, 147, 176, 0.4);
+}
+
+.signin-box button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: all 0.7s ease-in-out;
+}
+
+.signin-box button:hover::before {
+    left: 100%;
+}
+
+/* OR divider */
+.or-section {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.or-section::before,
+.or-section::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 10px;
+}
+
+/* Social buttons */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.social-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.facebook-btn {
+    color: white;
+}
+
+.facebook-btn img {
+    width: 40px;
+}
+
+.google-btn {
+    color: black;
+}
+
+.google-btn img {
+    width: 40px;
+}
+.social-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Signup text link */
+.signup-text {
+    font-size: 14px;
+    color: white;
+}
+
+.signup-text a {
+    color: #74c2f9;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.signup-text a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #74c2f9;
+    transition: width 0.3s ease;
+}
+
+.signup-text a:hover {
+    text-shadow: 0 0 8px rgba(116, 194, 249, 0.4);
+}
+
+.signup-text a:hover::after {
+    width: 100%;
+}

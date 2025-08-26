@@ -1,0 +1,258 @@
+/* Sidebar container with subtle pulse animation */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.08);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  border-right: 1px solid #e1e5ee;
+  animation: sidebarPulse 8s infinite;
+}
+
+@keyframes sidebarPulse {
+  0%, 100% {
+    border-right-color: #e1e5ee;
+  }
+  50% {
+    border-right-color: #6dd5ed;
+    box-shadow: 2px 0 15px rgba(109, 213, 237, 0.2);
+  }
+}
+
+/* Logo with techy style */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  gap: 10px;
+  position: relative;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(33, 147, 176, 0.2);
+  transform: rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: logoBreath 4s infinite ease-in-out;
+}
+
+@keyframes logoBreath {
+  0%, 100% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.1);
+    box-shadow: 0 6px 12px rgba(33, 147, 176, 0.4);
+  }
+}
+
+.logo-circle:hover {
+  transform: rotate(0deg) scale(1.2);
+  animation: none;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(to right, #2193b0, #6dd5ed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.logo-text::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #2193b0, #6dd5ed);
+  transition: width 0.5s ease;
+}
+
+.logo-container:hover .logo-text::after {
+  width: 100%;
+}
+
+/* Sidebar icons */
+.sidebar-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  vertical-align: middle;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: all 0.3s ease, filter 0.3s ease;
+}
+
+/* Sidebar list styles */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* Sidebar list item */
+.sidebar ul li {
+  padding: 15px 20px;
+  cursor: pointer;
+  color: #2d3748;
+  background-color: white;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(to bottom, #6dd5ed, #2193b0);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: bottom;
+}
+
+.sidebar ul li:hover::before {
+  transform: scaleY(1);
+}
+
+/* Hover effect */
+.sidebar ul li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(33, 147, 176, 0.15);
+}
+
+.sidebar ul li:hover .sidebar-icon {
+  filter: grayscale(0%);
+  transform: scale(1.2);
+  animation: iconPulse 1.5s infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+/* Active item */
+.sidebar ul li.active {
+  background-color: white;
+  color: #2193b0;
+  font-weight: 600;
+  border-left: 3px solid #2193b0;
+}
+
+.sidebar ul li.active .sidebar-icon {
+  filter: grayscale(0%);
+}
+
+.sidebar ul li.active::before {
+  transform: scaleY(1);
+}
+
+/* Logout button */
+.logout-btn {
+  padding: 15px 20px;
+  background: linear-gradient(to right, #f5f7fa, #e4e8ed);
+  color: #64748b;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: auto;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.logout-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.1), transparent);
+  transition: all 0.6s ease;
+}
+
+.logout-btn:hover::after {
+  left: 100%;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(to right, #e4e8ed, #d1d5db);
+  color: #ef4444;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.1);
+}
+
+.logout-btn::before {
+  content: "→";
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover::before {
+  transform: translateX(5px);
+  color: #ef4444;
+}
+
+/* Blue wave animation at the bottom */
+.sidebar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #6dd5ed, #2193b0, #6dd5ed);
+  background-size: 200% auto;
+  animation: wave 3s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

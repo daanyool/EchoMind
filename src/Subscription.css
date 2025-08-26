@@ -1,0 +1,101 @@
+/* Use the Orbitron font for headings */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+.subscription-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh; /* controls vertical centering */
+  width: 100vw;
+  margin-top: 150px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.subscription-container {
+  background: rgba(21, 32, 43, 0.85);
+  border: 1px solid #00f7ff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  max-width: 400px;  /* max width for card */
+  width: 100%;       /* fill wrapper width */
+  /* Remove fixed height */
+  color: white;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  /* height auto by default */
+}
+
+.subscription-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.8rem;
+  color: #66fcf1;
+  margin-bottom: 12px;
+  text-shadow: 0 0 15px #45a29e, 0 0 25px #45a29e;
+}
+
+.subscription-description {
+  font-size: 1.2rem;
+  margin-bottom: 28px;
+  color: #a0d7e9;
+  line-height: 1.5;
+  text-shadow: 0 0 5px #2c8f9d;
+}
+
+.subscription-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 36px;
+}
+
+.subscription-item {
+  font-size: 1.1rem;
+  margin: 12px 0;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid #00f7ff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.subscription-item:hover {
+  background: rgba(0, 240, 255, 0.25);
+}
+
+.subscribe-button {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.8), rgba(15, 76, 117, 0.8));
+  color: white;
+  padding: 14px 36px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.4);
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.subscribe-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 240, 255, 0.6);
+}
+.subscription-back-button {
+  background: none;
+  border: none;
+  color: #66fcf1;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  text-shadow: 0 0 10px #45a29e;
+  transition: color 0.3s ease;
+}
+
+.subscription-back-button:hover {
+  color: #45a29e;
+}

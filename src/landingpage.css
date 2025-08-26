@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* Container styles */
+.container {
+    width: 100vw;
+    height: max-content;
+    background: radial-gradient(ellipse 80% 70% at 73% 35%, rgba(133, 215, 250, .9), transparent 58%),
+                linear-gradient(140deg, #000000 0%, #03383a 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    animation: subtleBGShift 15s infinite alternate;
+    position:relative;
+}
+
+.logo {
+    width: 45px;
+    height: auto;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: rotate(15deg) scale(1.1);
+    filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.7));
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav-links {
+    margin-left: 50px;
+    display: flex;
+    gap: 30px;
+}
+
+/* Target the anchor tags directly */
+.nav-links a {
+    color: #e0e0e0;
+    background: none;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Dual-color animated underline */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00f0ff 0%, #d4d6d6 100%);
+    transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    background: none;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Glow effect on active link */
+.nav-links a.active {
+    color: #00f0ff;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+    background: #00f0ff;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
+
+/* Click animation */
+.nav-links a:active::after {
+    background: #00ffaa;
+    box-shadow: 0 0 15px rgba(0, 255, 170, 0.8);
+}
+/* Enhanced Auth Buttons - Distinct Styles */
+.auth-buttons {
+    position: absolute;
+    top: 43px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    margin-right: 50px;
+}
+
+/* Base Button Styles */
+.login-btn, .signup-btn {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    padding: 12px 30px;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 1px;
+    border: none;
+    z-index: 1;
+}
+
+/* Login Button - Blue Cyber Style */
+.login-btn {
+    background: transparent;
+    color: #00f0ff;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2),
+                inset 0 0 5px rgba(0, 240, 255, 0.1);
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+                transparent, 
+                rgba(0, 240, 255, 0.1), 
+                transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.login-btn:hover {
+    color: #ffffff;
+    border-color: rgba(0, 240, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4),
+                inset 0 0 10px rgba(0, 240, 255, 0.3);
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+.login-btn:hover::before {
+    left: 100%;
+}
+
+.login-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: #00f0ff;
+    transition: width 0.3s ease;
+}
+
+.login-btn:hover::after {
+    width: 100%;
+    left: 0;
+    right: auto;
+}
+
+/* Signup Button - White Futuristic Style */
+.signup-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1),
+                inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.signup-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        transparent 45%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 55%
+    );
+    transform: rotate(30deg);
+    transition: 0.6s;
+    z-index: -1;
+}
+
+.signup-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3),
+                inset 0 0 15px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.signup-btn:hover::before {
+    left: 50%;
+    top: 50%;
+}
+
+.signup-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease, height 0.3s ease;
+    z-index: -1;
+}
+
+.signup-btn:hover::after {
+    width: 150%;
+    height: 150%;
+}
+
+/* Active States */
+.login-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 5px rgba(0, 240, 255, 0.4),
+                inset 0 0 5px rgba(0, 240, 255, 0.2);
+}
+
+.signup-btn:active {
+    transform: translateY(1px) scale(1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
+                inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Text Animation */
+.login-btn span, .signup-btn span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.login-btn:hover span {
+    transform: translateX(3px);
+}
+
+.signup-btn:hover span {
+    transform: translateY(-2px);
+}
+
+/* Focus Effects */
+.login-btn:focus, .signup-btn:focus {
+    outline: none;
+    animation: buttonFocusPulse 1.5s infinite;
+}
+
+@keyframes buttonFocusPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(0, 240, 255, 0);
+    }
+}
+/* Hero section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.hero-content {
+    text-align: left;
+    margin-left: 100px;
+}
+
+.title {
+    font-size: 90px;
+    letter-spacing: 16px;
+    font-weight: bold;
+    margin-left: 30%;
+    margin-bottom: 20px;
+    font-family: 'Bruno Ace', sans-serif;
+    color: #00f0ff;
+    animation: titleGlow 4s infinite alternate;
+}
+
+.highlight {
+    font-size: 90px;
+    letter-spacing: 6px;
+    font-family: 'Bruno Ace', sans-serif;
+    color: #ffffff;
+    animation: highlightPulse 3s infinite alternate;
+}
+
+.subtitle {
+    font-size: 18px;
+    letter-spacing: 5px;
+    margin-left: 30%;
+    width: 100%; 
+    white-space: normal; 
+    overflow: visible; 
+    text-align: left; 
+}
+
+.journal-container {
+    display: flex;
+    margin-top: 1%;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    min-width: 10px;
+    max-width: 80vw;
+    min-height: 90px;
+    max-height: 80vh;
+    align-self: center;
+    background: transparent;
+    border-radius: 10px;
+}
+
+.journal-content {
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    color: #ffffffa6;
+    border-radius: 10px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    height: 150px;
+    transition: background 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    animation: glowSequence 6s infinite, journalFloat 8s infinite ease-in-out;
+}
+
+.journal-content p {
+    font-size: 14px;
+    line-height: 1.3;
+    letter-spacing: 0.4px;
+}
+
+.journal-line {
+    width: 2px;
+    max-height: 100vh;
+    background-color: #00bcd4;
+    transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    animation: lineGlow 3s infinite alternate;
+}
+
+/* Staggered Effect */
+.journal-content:nth-child(1) { animation-delay: 0s; }
+.journal-content:nth-child(2) { animation-delay: 2s; }
+.journal-content:nth-child(3) { animation-delay: 4s; }
+.journal-content:nth-child(4) { animation-delay: 6s; }
+
+.start-btn {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: 2px solid #fefefe;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 4px;
+    padding: 12px 30px;
+    border-radius: 10px;
+    align-self: center;
+    max-width: 170px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+    margin: 40px;
+    margin-top: 40px;
+    position: relative;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 0 22px rgba(173, 216, 230, 0.4);
+    animation: pulseGlow 1.8s infinite alternate;
+    overflow: hidden;
+}
+
+.start-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        transparent 45%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 55%
+    );
+    transform: rotate(30deg);
+    animation: btnShine 3s infinite;
+}
+
+.start-btn:hover {
+    background-color: rgb(8, 29, 13);
+    border-color: #f8f8f8;
+    box-shadow: 0 0 20px rgba(248, 253, 255, 0.9), 0 0 40px rgba(116, 196, 228, 0.9), 0 0 60px rgba(173, 216, 230, 0.8);
+    transform: scale(1.05);
+}
+
+/* Brain image */
+.brain-image {
+    width: 450px;
+    height: auto;
+    margin-right: 15%;
+    justify-self: center;
+    animation: floatAndPulse 6s ease-in-out infinite;
+}
+
+/* Animation Keyframes */
+@keyframes titleGlow {
+    0% {
+        text-shadow: 0 0 15px rgba(0, 240, 255, 0.9), 
+                     0 0 30px rgba(0, 180, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 25px rgba(0, 240, 255, 1), 
+                     0 0 50px rgba(0, 180, 255, 0.9),
+                     0 0 75px rgba(0, 120, 255, 0.7);
+    }
+}
+
+@keyframes highlightPulse {
+    0% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+    }
+    100% {
+        text-shadow: 0 0 25px rgba(255, 255, 255, 1),
+                     0 0 50px rgba(255, 255, 255, 0.8),
+                     0 0 75px rgba(200, 220, 255, 0.6);
+    }
+}
+
+@keyframes floatAndPulse {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.7));
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+        filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.9));
+    }
+}
+
+@keyframes lineGlow {
+    0% {
+        background-color: #00bcd4;
+        box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+    }
+    100% {
+        background-color: #00f0ff;
+        box-shadow: 0 0 15px rgba(0, 240, 255, 0.9),
+                    0 0 30px rgba(0, 180, 255, 0.6);
+    }
+}
+
+@keyframes subtleBGShift {
+    0% {
+        background: radial-gradient(ellipse 80% 70% at 73% 35%, rgba(133, 215, 250, .9), transparent 58%),
+                   linear-gradient(140deg, #000000 0%, #03383a 100%);
+    }
+    100% {
+        background: radial-gradient(ellipse 80% 70% at 67% 40%, rgba(133, 215, 250, .9), transparent 58%),
+                   linear-gradient(145deg, #000000 0%, #03383a 100%);
+    }
+}
+
+@keyframes btnShine {
+    0% {
+        left: -50%;
+        top: -50%;
+    }
+    100% {
+        left: 150%;
+        top: 150%;
+    }
+}
+
+@keyframes journalFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 12px rgb(255, 255, 255), 0 0 22px rgba(92, 211, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(173, 216, 230, 0.7), 0 0 35px rgba(255, 255, 255, 0.6);
+    }
+}
+
+@keyframes glowSequence {
+    0%, 10% {
+        box-shadow: 0 0 0px rgba(0, 188, 212, 0);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 188, 212, 0.7), 0 0 30px rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}

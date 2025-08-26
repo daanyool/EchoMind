@@ -1,0 +1,262 @@
+/* AnxietyTypes.css */
+.type-anxiety-page {
+    width: 100vw;
+    min-height: 100vh;
+    height: max-content;
+    background: radial-gradient(ellipse 80% 70% at 73% 35%, rgba(133, 215, 250, 0.9), transparent 58%),
+                linear-gradient(140deg, #000000 0%, #03383a 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    box-sizing: border-box;
+    animation: subtleBGShift 15s infinite alternate;
+}
+
+@keyframes subtleBGShift {
+    0% { background-position: 73% 35%, 0% 0%; }
+    100% { background-position: 70% 38%, 0% 0%; }
+}
+
+.type-anxiety-page__header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.type-anxiety-page__back-button {
+    position: absolute;
+    left: -570px;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.8), rgba(15, 76, 117, 0.8));
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.type-anxiety-page__back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 240, 255, 0.5);
+}
+
+.type-anxiety-page__title {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 10px rgba(0, 240, 255, 0.3);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.type-anxiety-page__intro {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.type-anxiety-page__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+
+.type-anxiety-page__card-container {
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer; /* Add cursor pointer to entire container */
+}
+.type-anxiety-page__card-container:hover .type-anxiety-page__card {
+    transform: rotateY(180deg);
+}
+.type-anxiety-page__card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+    border-radius: 16px;
+}
+
+.type-anxiety-page__card-front,
+.type-anxiety-page__card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.type-anxiety-page__card-front {
+    background: rgba(0, 240, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 240, 255, 0.15);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transform: rotateY(0deg);
+}
+
+.type-anxiety-page__card-front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #00f0ff, #4facfe);
+}
+
+.type-anxiety-page__card-back {
+    background: rgba(0, 200, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 200, 255, 0.2);
+    border: 1px solid rgba(0, 220, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transform: rotateY(180deg);
+    text-align: center;
+}
+
+.type-anxiety-page__image-placeholder {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(79, 172, 254, 0.1));
+    width: 180px;
+    height: 180px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed rgba(0, 240, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.emoji {
+    font-size: 4rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.type-anxiety-page__image-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        transparent
+    );
+    animation: shimmer 2.5s infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+    100% { left: 100%; }
+}
+
+.type-anxiety-page__card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+}
+
+.type-anxiety-page__card p {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+}
+
+/* For continuous rotation (alternative animation) */
+.type-anxiety-page__card.rotate-continuously {
+    animation: rotate360 8s linear infinite;
+}
+
+@keyframes rotate360 {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .type-anxiety-page {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .type-anxiety-page {
+        padding: 40px 20px;
+    }
+    
+    .type-anxiety-page__title {
+        font-size: 2.2rem;
+    }
+    
+    .type-anxiety-page__back-button {
+        left: 20px;
+        padding: 10px 18px;
+    }
+    
+    .type-anxiety-page__grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    
+    .type-anxiety-page__card-container {
+        height: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .type-anxiety-page {
+        padding: 40px 15px;
+    }
+    
+    .type-anxiety-page__title {
+        font-size: 1.8rem;
+    }
+    
+    .type-anxiety-page__intro {
+        font-size: 1rem;
+    }
+    
+    .type-anxiety-page__image-placeholder {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .emoji {
+        font-size: 3rem;
+    }
+    
+}

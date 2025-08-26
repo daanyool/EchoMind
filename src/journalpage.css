@@ -1,0 +1,132 @@
+/* Container */
+.thoughts-container {
+    width: 100vw;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(ellipse 100% 70% at 73% 35%, rgba(58, 97, 114, 0.9), transparent 58%),
+                linear-gradient(140deg, #000000 0%, #03383a 100%);
+    color: white;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    cursor:default;  /* To show that the area is interactive */
+  }
+
+  .thoughts-title {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 30px;
+    font-size: 25px;
+  }
+  
+  /* Textarea */
+  .thoughts-textarea {
+    width: 80%;
+    max-width: 600px;
+    height: 300px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    border-top: 1px solid #fefefe;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    outline: none;
+    resize: none;
+    
+    /* Subtle glow effect */
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2),
+    0 10px 15px rgba(0, 0, 0, 0.8);
+    
+    /* Prevents text from being hidden under the pseudo-element */
+    position: relative;
+}
+
+/* Add the glowing lines with padding using ::before */
+.thoughts-textarea::before {
+    content: "";
+    position: absolute;
+    top: 15px; /* Match padding */
+    left: 15px; /* Match padding */
+    right: 15px; /* Match padding */
+    bottom: 15px; /* Match padding */
+    
+    background-image: repeating-linear-gradient(
+        to bottom, 
+        rgba(255, 255, 255, 0.3) 0px, 
+        rgba(255, 255, 255, 0.3) 1px, 
+        transparent 3px, 
+        transparent 40px
+    );
+
+    pointer-events: none; /* Ensure it doesn’t interfere with typing */
+}
+
+  /* Change the color of the placeholder text */
+.thoughts-textarea::placeholder {
+    color: rgb(255, 255, 255); /* You can adjust this to any color you'd like */
+}
+  
+  /* Next and See Results Buttons */
+  .nav-button,
+  .see-results-button {
+    margin-top: 5dvb;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: normal;
+    color: rgb(245, 245, 245);
+    background-color: #03383a;
+    border: none;
+    margin: 30px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .nav-button:disabled {
+    background-color: rgba(3, 56, 58, 0.7);
+    cursor: not-allowed;
+  }
+  
+  .nav-button:hover,
+  .see-results-button:hover {
+    background-color: #fcfcfc;
+    color: #03383a;
+    transform: scale(1.05);
+  }
+  
+  .see-results-button:hover {
+    background: white;
+    color: #03383a;
+  }
+  
+  /* Bubble Effect */
+  .bubble {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: bubbleAnim 1s ease-out forwards;
+    pointer-events: none;
+  }
+  
+  @keyframes bubbleAnim {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+  
